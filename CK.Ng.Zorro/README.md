@@ -6,8 +6,8 @@ This package wraps [ng-zorro-antd](https://ng.ant.design/) and provides shared s
 
 Depends on:
 
-- [CK.TS.Angular](https://github.com/signature-opensource/CK-TypeScript/tree/develop/CK.TS.Angular)
-- [CK.Ng.Localization](https://github.com/signature-opensource/CK-TypeScript/tree/develop/CK.Ng.Localization)
+- [CK.TS.Angular](../CK.TS.Angular/README.md)
+- [CK.Ng.Localization](../CK.Ng.Localization)
 
 ## Features
 
@@ -24,6 +24,6 @@ After running CK-Build :
 
 - The global `@import 'ng-zorro-antd/ng-zorro-antd.less` will appear in your /src/styles.less global stylesheet.
 - A default `provideNzI18n( fr_FR )` provider will be added to CKGenModule.Providers. The library's components will be translated to french by default (cf. <https://ng.ant.design/docs/i18n/en>).
-- A `provideTranslateService( { defaultLanguage: 'fr', loader: { provide: TranslateLoader, useClass: CKTranslationsLoader } }` will be added to CKGenModule.Provider (cf. <https://github.com/signature-opensource/CK-TypeScript/tree/develop/CK.Ng.Localization>). Just like above, french will be the default loaded translations.
+- A `provideTranslateService( { defaultLanguage: 'fr', loader: { provide: TranslateLoader, useClass: CKTranslationsLoader } }` will be added to CKGenModule.Provider (cf. [CK.Ng.Localization](../CK.Ng.Localization)). Just like above, french will be the default loaded translations.
 
 > Note: French was chosen as default language to enhance `package first` vision.

@@ -44,6 +44,12 @@ public partial class AngularCodeGeneratorImpl : ITSCodeGeneratorFactory
         [AllowNull] ITSCodePart _importModulePart;
         [AllowNull] ITSCodePart _exportModulePart;
         [AllowNull] ITSCodePart _providerPart;
+        readonly AngularLocalesContributor _locales = new AngularLocalesContributor();
+
+        /// <summary>
+        /// Gets the Angular part of the generated "ck-gen/ts-locales/locales.ts" (see NgLocalesAttributeImpl).
+        /// </summary>
+        internal AngularLocalesContributor Locales => _locales;
 
         public ITSFileImportSection CKGenAppModuleImports => _ckGenAppModule.Imports;
 
@@ -85,6 +91,8 @@ public partial class AngularCodeGeneratorImpl : ITSCodeGeneratorFactory
             {
                 return false;
             }
+            // The Angular part of the locales.ts: an engine's contribution, before the packages' ones.
+            context.AddLocalesContributor( null, _locales );
             Throw.DebugAssert( "Inline mode => IntegrationContext.", context.IntegrationContext != null );
 
             _angularCore = context.Root.LibraryManager.RegisterLibrary( monitor, "@angular/core", DependencyKind.Dependency );

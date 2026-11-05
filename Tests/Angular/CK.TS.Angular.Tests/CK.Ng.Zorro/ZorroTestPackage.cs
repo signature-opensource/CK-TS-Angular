@@ -1,3 +1,4 @@
+using CK.TS.Angular;
 using CK.TypeScript;
 
 namespace CK.Ng.Zorro;
@@ -11,6 +12,13 @@ namespace CK.Ng.Zorro;
 [TypeScriptImportLibrary( "@fortawesome/angular-fontawesome", "^5", DependencyKind.Dependency )]
 [TypeScriptImportLibrary( "@fortawesome/fontawesome-svg-core", "^7", DependencyKind.Dependency )]
 [AppStyleImport( "ng-zorro-antd/ng-zorro-antd.less" )]
+[NgLocales( "zorro", "NzI18nInterface",
+            CultureValues = "de:de_DE;en:en_US;en-gb:en_GB;es:es_ES;fr:fr_FR;fr-be:fr_BE;fr-ca:fr_CA;it:it_IT;nl:nl_NL;nl-be:nl_BE;pt:pt_PT;uk:uk_UA;zh:zh_CN;zh-hk:zh_HK;zh-tw:zh_TW",
+            DefaultValue = "en_US",
+            ValueImportFrom = "ng-zorro-antd/i18n",
+            ServiceMember = "readonly #zorro = inject( NzI18nService );",
+            SetLocaleCode = "this.#zorro.setLocale( config.zorro );" )]
+[NgLocalesImport( "NzI18nInterface, NzI18nService", From = "ng-zorro-antd/i18n" )]
 public class ZorroTestPackage : TypeScriptPackage
 {
 }

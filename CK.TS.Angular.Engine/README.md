@@ -73,6 +73,22 @@ The symbols that the provider code uses are imported in `CKGenAppModule.ts` by t
 from `@local/ck-gen` by default, otherwise from the `NgProviderImportAttribute.From` library (a sub path like
 `ng-zorro-antd/i18n` is supported), which is registered as a dev dependency when no package declares it.
 
+### The locales
+
+The Angular part of the generated `ck-gen/ts-locales/locales.ts` is a contribution of this engine
+(`AngularLocalesContributor`, registered without package, see the `TSLocalesContributor` of
+[CK.TypeScript.Engine](https://github.com/signature-opensource/CK-TypeScript/blob/stable/CK.TypeScript.Engine/README.md)):
+the `@angular/core` import, the Angular locale data of the active cultures (`registerLocaleData`), the `LocaleService`
+(its `currentLocale` signal and `setLocale`), `LocaleId` and the `LocaleProvider`.
+
+A package adds its feature with `[NgLocales]` (`NgLocalesAttributeImpl`): a field of `LocaleInfo` with its value for each
+active culture (a `NgLocalesAttribute.ValuePattern` of the culture name, or a `NgLocalesAttribute.CultureValues` table
+with a fallback to the root culture, then to the `NgLocalesAttribute.DefaultValue` with a warning), and the code that
+applies the current locale: a `LocaleService` member, constructor lines and `setLocale` lines. The symbols this code
+uses are imported by `[NgLocalesImport]`; when the values are identifiers (`NgLocalesAttribute.ValueImportFrom`), the
+ones used by the active cultures are added to the import from their module. The contributions are written in the order
+of their packages: CK.Ng.Localization (`ngxTranslate`) and CK.Ng.Zorro (`zorro`) declare theirs this way.
+
 ### The routes
 
 A routed component (`[NgRoutedComponent]`) appears in the routes of its `NgRoutedComponentAttribute.TargetComponent`

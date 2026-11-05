@@ -20,9 +20,10 @@ application.
 provideTranslateService( { fallbackLang: DEFAULT_LOCALE_INFO.ngxTranslate, lang: DEFAULT_LOCALE_INFO.ngxTranslate, loader: provideTranslateLoader( CKTranslationsLoader ) })
 ```
 
-When this package is in the configuration, the generated `ck-gen/ts-locales/locales.ts`
-([CK.TypeScript](https://github.com/signature-opensource/CK-TypeScript/blob/stable/CK.TypeScript/README.md)) gives each
-locale its `ngxTranslate` language, and its `LocaleService.setLocale` switches the ngx-translate language too.
+This package contributes to the generated `ck-gen/ts-locales/locales.ts` with `[NgLocales]` (see
+[CK.TS.Angular.Engine](../CK.TS.Angular.Engine/README.md#the-locales)): each locale gets its `ngxTranslate` language,
+and `LocaleService.setLocale` switches the ngx-translate language too (it resolves once the translations of the
+language are loaded).
 
 ## Requires
 

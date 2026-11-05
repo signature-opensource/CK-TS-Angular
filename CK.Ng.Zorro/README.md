@@ -26,5 +26,9 @@ After running CK-Build :
   (`[AppStyleImport( "ng-zorro-antd/ng-zorro-antd.less" )]`).
 - A `provideNzI18n( DEFAULT_LOCALE_INFO.zorro )` provider is added to `CKGenAppModule.Providers`: the library's components
   use the ng-zorro-antd locale of the default culture of the generated `ck-gen/ts-locales` (cf. <https://ng.ant.design/docs/i18n/en>).
+- `[NgLocales]` adds the `zorro` field to the `LocaleInfo` of the generated `ck-gen/ts-locales/locales.ts`: the
+  ng-zorro-antd locale of each active culture (its table is in the attribute, a culture without entry takes the one of
+  its root culture, then `en_US`), and `LocaleService.setLocale` applies it (see
+  [CK.TS.Angular.Engine](../CK.TS.Angular.Engine/README.md#the-locales)).
 - The ngx-translate service is provided by [CK.Ng.Localization](../CK.Ng.Localization/README.md), with the same default
   culture. No language is hard-coded.

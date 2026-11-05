@@ -31,7 +31,7 @@ public interface IAngularContext
     LibraryImport AngularRouterLibrary { get; }
 
     /// <summary>
-    /// Gets the 'static Providers : Provider[] = [...]' part.
+    /// Gets the 'static Providers : SourcedProviders = SourcedProviders.createFrom( [...] )' part.
     /// </summary>
     ITSCodePart ProviderPart { get; }
 }

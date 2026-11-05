@@ -13,7 +13,7 @@ namespace CK.TS.Angular.Engine;
 /// </summary>
 public class NgModuleAttributeImpl : TypeScriptGroupOrPackageAttributeImpl
 {
-    readonly string _snakeName;
+    readonly string _kebabName;
 
     /// <summary>
     /// Initializes a new <see cref="NgModuleAttributeImpl"/>.
@@ -28,8 +28,8 @@ public class NgModuleAttributeImpl : TypeScriptGroupOrPackageAttributeImpl
         {
             monitor.Error( $"[NgModule] can only decorate a NgModule: '{type:N}' is not a NgModule." );
         }
-        (_snakeName, _) = NgComponentAttributeImpl.CheckComponentName( monitor, type, "Module" );
-        SetTypeScriptFolder( TypeScriptFolder.AppendPart( _snakeName ) );
+        (_kebabName, _) = NgComponentAttributeImpl.CheckComponentName( monitor, type, "Module" );
+        SetTypeScriptFolder( TypeScriptFolder.AppendPart( _kebabName ) );
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class NgModuleAttributeImpl : TypeScriptGroupOrPackageAttributeImpl
                                                           ResSpaceConfiguration spaceBuilder,
                                                           ResPackageDescriptor d )
     {
-        var fName = _snakeName + ".module.ts";
+        var fName = _kebabName + ".module.ts";
         if( !d.Resources.TryGetExpectedResource( monitor, fName, out var res ) )
         {
             return false;

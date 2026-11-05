@@ -338,7 +338,7 @@ public partial class AngularCodeGeneratorImpl : ITSCodeGeneratorFactory
 
                     static bool TransformAppComponent( IActivityMonitor monitor, NormalizedPath appFilePath )
                     {
-                        var _ = monitor.OpenInfo( "Transforming file 'src/app.ts'." );
+                        var _ = monitor.OpenInfo( "Transforming file 'src/app/app.ts'." );
                         var code = new TransformerHost( new TypeScriptLanguage() ).Transform( monitor,
                                                                                               File.ReadAllText( appFilePath ),
                                                                                               """"
@@ -435,7 +435,7 @@ public partial class AngularCodeGeneratorImpl : ITSCodeGeneratorFactory
                             {
                                 if( !NeedComma( app, idx, out var needComma ) )
                                 {
-                                    monitor.Warn( "Unable to find te start of the array." );
+                                    monitor.Warn( "Unable to find the start of the array." );
                                     success = false;
                                 }
                                 else
@@ -492,7 +492,7 @@ public partial class AngularCodeGeneratorImpl : ITSCodeGeneratorFactory
                             monitor.Warn( $"Expecting file '{path}'. Skipping \"tests\" section removal and \"budgets\" configuration." );
                             return true;
                         }
-                        using var _ = monitor.OpenInfo( "Processing file '{path}': removing \"tests\" section and configuring \"budgets.maximumError\" to \"1GB\"." );
+                        using var _ = monitor.OpenInfo( $"Processing file '{path}': removing \"tests\" section and configuring \"budgets.maximumError\" to \"1GB\"." );
                         try
                         {
                             bool testRemoved = false;

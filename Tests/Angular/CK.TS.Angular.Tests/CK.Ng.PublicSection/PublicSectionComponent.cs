@@ -26,6 +26,6 @@ namespace CK.Ng.PublicSection;
 //
 [OptionalRequires<CK.Ng.Zorro.GenericFormComponent>]
 [Requires<PublicPage.PublicPageComponent>]
-public sealed class PublicSectionComponent : NgComponent, INgNamedComponent // Testing the CK/Angular/NamedComponentResolver.ts
+public sealed class PublicSectionComponent : NgComponent, INgNamedComponent // Testing the CK/Angular/NamedComponentsResolver.ts
 {
 }

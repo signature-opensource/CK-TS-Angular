@@ -6,7 +6,7 @@ namespace CK.Ng.AspNet.Auth;
 
 [NgRoutedComponent<PublicPageComponent>( HasRoutes = true )]
 [Package<SomeAuthPackage>]
-public sealed class LoginComponent : NgRoutedComponent, INgNamedComponent // Testing the CK/Angular/NamedComponentResolver.ts
+public sealed class LoginComponent : NgRoutedComponent, INgNamedComponent // Testing the CK/Angular/NamedComponentsResolver.ts
 {
 }
 

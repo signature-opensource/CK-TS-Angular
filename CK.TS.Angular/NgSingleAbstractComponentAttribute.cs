@@ -21,7 +21,7 @@ public sealed class NgSingleAbstractComponentAttribute : Attribute, ISingleMappi
     /// <summary>
     /// Initializes a new <see cref="NgSingleAbstractComponentAttribute"/>.
     /// </summary>
-    /// <param name="componentName">The file name of the component ("private-page") without the ".component.ts" suffix.</param>
+    /// <param name="componentName">The kebab-case component name ("private-page"): the component's file is "private-page.ts".</param>
     public NgSingleAbstractComponentAttribute( string componentName )
     {
         ComponentName = componentName;

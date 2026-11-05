@@ -11,7 +11,7 @@ using CK.Engine.TypeCollector;
 namespace CK.TS.Angular.Engine;
 
 /// <summary>
-/// Implements <see cref="NgModuleAttribute"/>.
+/// Implements <see cref="NgComponentAttribute"/>.
 /// </summary>
 public partial class NgComponentAttributeImpl : TypeScriptGroupOrPackageAttributeImpl
 {

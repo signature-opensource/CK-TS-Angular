@@ -57,7 +57,8 @@ public class AngularTests
 
         await using var runner = TestHelper.CreateTypeScriptRunner( targetProjectPath );
         await TestHelper.SuspendAsync( resume => resume );
-        runner.Run();
+        // "ng build" first: "yarn test" (Jest) never goes through the angular.json builders nor compiles the whole application.
+        runner.BuildAndRun();
     }
 
     [Test]

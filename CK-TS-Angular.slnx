@@ -1,2 +1,15 @@
 <Solution>
+  <Folder Name="/Tests/" />
+  <Folder Name="/Tests/Angular/">
+    <Project Path="Tests/Angular/CK.TS.Angular.Tests/CK.TS.Angular.Tests.csproj" />
+  </Folder>
+  <Project Path="CK.Ng.AspNet.Auth.Basic/CK.Ng.AspNet.Auth.Basic.csproj" />
+  <Project Path="CK.Ng.AspNet.Auth/CK.Ng.AspNet.Auth.csproj" />
+  <Project Path="CK.Ng.AspNet.WebSocketChannel/CK.Ng.AspNet.WebSocketChannel.csproj" />
+  <Project Path="CK.Ng.Axios/CK.Ng.Axios.csproj" />
+  <Project Path="CK.Ng.Localization/CK.Ng.Localization.csproj" />
+  <Project Path="CK.Ng.PublicPage/CK.Ng.PublicPage.csproj" />
+  <Project Path="CK.Ng.Zorro/CK.Ng.Zorro.csproj" />
+  <Project Path="CK.TS.Angular.Engine/CK.TS.Angular.Engine.csproj" />
+  <Project Path="CK.TS.Angular/CK.TS.Angular.csproj" />
 </Solution>

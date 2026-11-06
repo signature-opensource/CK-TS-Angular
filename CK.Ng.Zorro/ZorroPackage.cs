@@ -14,6 +14,8 @@ namespace CK.Ng.Zorro;
 [TypeScriptImportLibrary( "@fortawesome/free-brands-svg-icons", "^7", DependencyKind.Dependency )]
 [TypeScriptImportLibrary( "@fortawesome/free-regular-svg-icons", "^7", DependencyKind.Dependency )]
 [TypeScriptImportLibrary( "@fortawesome/free-solid-svg-icons", "^7", DependencyKind.Dependency )]
+[YarnPackageExtension( "ng-zorro-antd@*", DependencyKind.PeerDependency, "rxjs", "*",
+                       Reason = "ng-zorro-antd uses rxjs (through @angular/cdk and @ant-design/icons-angular) but doesn't declare it: without the peer, its CDK is a second instance." )]
 
 [NgProviderImport( "provideNzI18n", From = "ng-zorro-antd/i18n" )]
 [NgProviderImport( "DEFAULT_LOCALE_INFO", From = "@local/ck-gen/ts-locales/locales" )]

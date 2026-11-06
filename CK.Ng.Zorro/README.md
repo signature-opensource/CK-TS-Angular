@@ -24,6 +24,11 @@ After running CK-Build :
 
 - An `@import` of `ng-zorro-antd/ng-zorro-antd.less` appears in the application's `src/styles.less` global stylesheet
   (`[AppStyleImport( "ng-zorro-antd/ng-zorro-antd.less" )]`).
+- The application's `.yarnrc.yml` declares rxjs as a peer of ng-zorro-antd
+  (`[YarnPackageExtension( "ng-zorro-antd@*", DependencyKind.PeerDependency, "rxjs", "*" )]`): ng-zorro-antd uses rxjs
+  (through `@angular/cdk` and `@ant-design/icons-angular`) but doesn't declare it, and without the peer Yarn Plug'n'Play
+  creates a second instance of its CDK (two overlay containers, directives that don't find their parent across the two
+  copies).
 - A `provideNzI18n( DEFAULT_LOCALE_INFO.zorro )` provider is added to `CKGenAppModule.Providers`: the library's components
   use the ng-zorro-antd locale of the default culture of the generated `ck-gen/ts-locales` (cf. <https://ng.ant.design/docs/i18n/en>).
 - `[NgLocales]` adds the `zorro` field to the `LocaleInfo` of the generated `ck-gen/ts-locales/locales.ts`: the

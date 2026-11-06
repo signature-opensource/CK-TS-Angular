@@ -55,10 +55,31 @@ public class AngularTests
         await configuration.RunSuccessfullyAsync();
         File.ReadAllText( angularJsonPath ).ShouldContain( "\"analytics\": false" );
 
+        // The rxjs peer of ng-zorro-antd ([YarnPackageExtension] of the ZorroTestPackage): a single CDK instance.
+        // The settings that Yarn wrote in the .yarnrc.yml (a lockfile migration) are kept.
+        var yarnRc = File.ReadAllText( targetProjectPath.AppendPart( ".yarnrc.yml" ) );
+        yarnRc.ShouldContain( "npmMinimalAgeGate: 0" );
+        yarnRc.ShouldContain( "\"ng-zorro-antd@*\":" );
+        CdkInstances( targetProjectPath ).ShouldBe( 1 );
+
         await using var runner = TestHelper.CreateTypeScriptRunner( targetProjectPath );
         await TestHelper.SuspendAsync( resume => resume );
         // "ng build" first: "yarn test" (Jest) never goes through the angular.json builders nor compiles the whole application.
         runner.BuildAndRun();
+    }
+
+    // The virtual instances of @angular/cdk in the .pnp.cjs (a virtual instance per set of peers).
+    static int CdkInstances( NormalizedPath targetProjectPath )
+    {
+        var lines = File.ReadAllLines( targetProjectPath.AppendPart( ".pnp.cjs" ) );
+        int start = System.Array.IndexOf( lines, "    [\"@angular/cdk\", [\\" );
+        start.ShouldBeGreaterThan( 0 );
+        int count = 0;
+        for( int i = start + 1; i < lines.Length && !lines[i].StartsWith( "    ]]" ); i++ )
+        {
+            if( lines[i].StartsWith( "      [\"virtual:" ) ) count++;
+        }
+        return count;
     }
 
     [Test]

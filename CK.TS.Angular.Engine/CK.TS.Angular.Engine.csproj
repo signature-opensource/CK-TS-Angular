@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CK.TypeScript.Engine" Version="3.0.0-0.cris-auth.1.ci.96" />
+    <PackageReference Include="CK.TypeScript.Engine" Version="3.0.0-0.cris-auth.1.ci.97" />
     <ProjectReference Include="..\CK.TS.Angular\CK.TS.Angular.csproj" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CK.Testing.Nunit" Version="18.0.0-0.cris-auth.0.ci.6" />
+    <PackageReference Include="CK.Testing.Nunit" Version="18.0.0-0.cris-auth.0.ci.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
   </ItemGroup>
@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\CK.Ng.Localization\CK.Ng.Localization.csproj" />
     <ProjectReference Include="..\..\..\CK.Ng.PublicPage\CK.Ng.PublicPage.csproj" />
-    <PackageReference Include="CK.Testing.TypeScriptEngine" Version="3.0.0-0.cris-auth.1.ci.102" />
+    <PackageReference Include="CK.Testing.TypeScriptEngine" Version="3.0.0-0.cris-auth.1.ci.104" />
     <ProjectReference Include="..\..\..\CK.TS.Angular.Engine\CK.TS.Angular.Engine.csproj" />
   </ItemGroup>
   <ItemGroup>

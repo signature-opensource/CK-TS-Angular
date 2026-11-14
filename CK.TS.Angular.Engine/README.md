@@ -16,6 +16,13 @@ An Angular application is always integrated in `Inline` mode, with its tests: th
 `TypeScriptBinPathAspectConfiguration.IntegrationMode` must be `Inline` and `TypeScriptBinPathAspectConfiguration.AutoInstallJest`
 must be true, otherwise the run fails.
 
+### The "NgApp" clients of a "ckonf.json"
+
+The [`NgAppAppBuilderContributor`](NgAppAppBuilderContributor.cs) configures the TypeScript aspect from the clients that
+the parties of a builder's `ckonf.json` declare with the "NgApp" client feature: a
+`TypeScriptFrameworkAppBuilderContributor` of CK.TypeScript.Engine (the keys, the type set of the client, its "Hosting"
+compile keys).
+
 ## The Angular application
 
 When the target project has no `angular.json`, the engine creates the application. It installs `@angular/cli` (the

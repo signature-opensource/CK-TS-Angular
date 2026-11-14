@@ -5,6 +5,31 @@ The [CK.TS.Angular.Engine](../CK.TS.Angular.Engine/README.md) implements this pa
 application when there is none, sets up its Jest tests, generates the code and upgrades an application on an older
 Angular major. Its README gives the details.
 
+## The "NgApp" client feature
+
+A client of a party (CK.AppIdentity.PartyClient) that is an Angular application has the "NgApp" client feature: the
+[`NgAppClientFeature`](NgAppClientFeature.cs), created by its `NgAppClientFeatureDriver` from the `ClientDirectory` of the
+application (the client must be built by it). It is:
+
+- the TypeScript framework of the client (`ITypeScriptFramework` of CK.TypeScript): its `Info` is the `ClientInfo`;
+- its web build (`IWebAppBuild` of CK.AppIdentity.PartyClient): its `ProjectPath`, its `OutputPath` (the Angular builder's
+  `dist/{project}/browser`) and its dev server (`ng serve --port {port}` through the yarn of the project), what the
+  "Hosting" feature of CK.TS.AspNet.Clients serves;
+- the facts of the client in its description (`ClientInfo.Facts`).
+
+Its keys are compile time keys (the TypeScript configuration of the client, see CK.TypeScript.Engine): at run time
+`"NgApp": true` declares it.
+
+```jsonc
+"PartyClient": {
+  "MiniApp": {
+    "Types": [ "CK.Ng.Cris.AspNet.CrisAspNetPackage, CK.Ng.Cris.AspNet" ],
+    "NgApp": { "ActiveCultures": [ "en", "fr" ] },
+    "Hosting": { "DevServerPort": 4201 }
+  }
+}
+```
+
 ## Usage
 When the target project has no Angular application, the engine creates it with `ng new` and wires the generated code
 into it. An existing application must contain the following.

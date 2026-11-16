@@ -1,5 +1,6 @@
 using CK.Core;
-using CK.Engine.TypeCollector;
+using CK.TypeCache;
+using CK.TypeSet;
 using CK.Setup;
 using CK.TypeScript.CodeGen;
 using System;

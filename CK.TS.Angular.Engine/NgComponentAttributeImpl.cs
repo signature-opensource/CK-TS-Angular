@@ -6,7 +6,8 @@ using System;
 using System.Runtime.CompilerServices;
 using CK.EmbeddedResources;
 using System.Linq;
-using CK.Engine.TypeCollector;
+using CK.TypeCache;
+using CK.TypeSet;
 
 namespace CK.TS.Angular.Engine;
 

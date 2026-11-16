@@ -11,6 +11,7 @@ namespace CK.TS.Angular;
 /// (<see cref="ITypeScriptFramework"/>) and its web build (<see cref="IWebAppBuild"/>: the Angular builder's output,
 /// "ng serve"). What it is comes from the build (its <see cref="Info"/>): its section has only compile time keys.
 /// </summary>
+[PartyClientFeature( "NgApp", TypeActivation.Optional )]
 public sealed class NgAppClientFeature : ClientFeature, ITypeScriptFramework, IWebAppBuild
 {
     internal NgAppClientFeature( PartyClient client, ImmutableConfigurationSection configuration, ClientInfo info )

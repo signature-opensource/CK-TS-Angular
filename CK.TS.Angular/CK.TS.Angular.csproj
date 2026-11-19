@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CK.TypeScript" Version="4.0.0-0.uc.0.ci.17" />
+    <PackageReference Include="CK.TypeScript" Version="4.0.0-0.uc.0.ci.18" />
   </ItemGroup>
 
 </Project>

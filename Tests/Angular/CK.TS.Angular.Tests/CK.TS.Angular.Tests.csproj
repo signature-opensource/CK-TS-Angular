@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\CK.Ng.Localization\CK.Ng.Localization.csproj" />
     <ProjectReference Include="..\..\..\CK.Ng.PublicPage\CK.Ng.PublicPage.csproj" />
-    <PackageReference Include="CK.Testing.Engine.TypeScript" Version="4.0.0-0.uc.2" />
+    <PackageReference Include="CK.Testing.Engine.TypeScript" Version="4.0.0-0.uc.2.ci.50" />
     <ProjectReference Include="..\..\..\CK.TS.Angular.Engine\CK.TS.Angular.Engine.csproj" />
   </ItemGroup>
   <ItemGroup>

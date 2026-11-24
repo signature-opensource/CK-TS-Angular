@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
-        <Description>Angular support of the single WebSocket channel: provides the one WSConnection of the application and opens it during the bootstrap.</Description>
     </PropertyGroup>
 
     <ItemGroup>

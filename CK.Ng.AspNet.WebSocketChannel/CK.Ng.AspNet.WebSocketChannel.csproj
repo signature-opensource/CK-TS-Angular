@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CK.TS.AspNet.WebSocketChannel" Version="3.0.1-0.uc.2.ci.124" />
+        <PackageReference Include="CK.TS.AspNet.WebSocketChannel" Version="3.0.1-0.uc.2.ci.127" />
         <ProjectReference Include="..\CK.TS.Angular\CK.TS.Angular.csproj" />
     </ItemGroup>
 

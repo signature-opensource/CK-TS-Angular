@@ -9,9 +9,11 @@ namespace CK.TS.Angular;
 /// <summary>
 /// The "NgApp" client feature: the client is an Angular application, the TypeScript framework of the client
 /// (<see cref="ITypeScriptFramework"/>) and its web build (<see cref="IWebAppBuild"/>: the Angular builder's output,
-/// "ng serve"). What it is comes from the build (its <see cref="Info"/>): its section has only compile time keys.
+/// "ng serve"). What it is comes from the build (its <see cref="Info"/>): its section has only compile time keys (its
+/// compile time model, <see cref="CK.Setup.TypeScriptClientCompileConfiguration"/>) and its options.
 /// </summary>
 [PartyClientFeature( "NgApp", TypeActivation.Optional )]
+[CompileConfiguration<CK.Setup.TypeScriptClientCompileConfiguration>]
 public sealed class NgAppClientFeature : ClientFeature, ITypeScriptFramework, IWebAppBuild
 {
     internal NgAppClientFeature( PartyClient client, ImmutableConfigurationSection configuration, ClientInfo info )
@@ -64,13 +66,6 @@ public sealed class NgAppClientFeatureDriver : ClientFeatureDriver<NgAppClientFe
         if( info == null )
         {
             monitor.Error( $"The {client} declares \"NgApp\" but the application builds no client application '{client.Name}' (the builder declares it in its \"ckonf.json\")." );
-            return null;
-        }
-        // Its keys are compile time keys: they are here only when the App keeps them ("ProjectCompileKeys").
-        var unknown = configuration.GetChildren().Where( c => !CK.Setup.TypeScriptBinPathAspectConfiguration.ClientConfigurationKeys.Contains( c.Key ) ).ToList();
-        if( unknown.Count > 0 )
-        {
-            monitor.Error( $"Unknown \"{unknown[0].Path}\": the keys of \"NgApp\" are compile time keys ('{CK.Setup.TypeScriptBinPathAspectConfiguration.ClientConfigurationKeys.Order().Concatenate( "', '" )}')." );
             return null;
         }
         return new NgAppClientFeature( client, configuration, info );

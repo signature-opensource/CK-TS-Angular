@@ -17,15 +17,16 @@ application (the client must be built by it). It is:
   "Hosting" feature of CK.TS.AspNet.Clients serves;
 - the facts of the client in its description (`ClientInfo.Facts`).
 
-Its keys are compile time keys (the TypeScript configuration of the client, see CK.TypeScript.Engine): at run time
-`"NgApp": true` declares it.
+Its keys are its compile time model (`[CompileConfiguration<TypeScriptClientCompileConfiguration>]`: the TypeScript
+configuration of the client, its `RequestPath` and its `DevServerPort`, see CK.TypeScript.Engine) and its options: the
+run time ignores the compile time keys.
 
 ```jsonc
 "PartyClient": {
   "MiniApp": {
     "Types": [ "CK.Ng.Cris.AspNet.CrisAspNetPackage, CK.Ng.Cris.AspNet" ],
-    "NgApp": { "ActiveCultures": [ "en", "fr" ] },
-    "Hosting": { "DevServerPort": 4201 }
+    "NgApp": { "ActiveCultures": [ "en", "fr" ], "DevServerPort": 4201 },
+    "Hosting": true
   }
 }
 ```
